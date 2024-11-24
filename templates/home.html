@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+
+<div id="homePageContainer">
+
+<video id="videoStyle" controls autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/backgroundVideo.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+        <div class="overlay"></div>
+            <div id="firstSection">
+                <div id="textContainerFirstSection">
+                    <div class="titleHomePageContainer">
+                        <p>
+                            Control your home at your fingertips
+                        </p>
+                        <i class="bi bi-house-fill houseIconStyle"></i>
+                    </div>
+
+                    <p class="textHomePage">
+                        Effortlessly manage your home with smart technology, offering
+                        seamless control over lighting, temperature, and security from
+                        anywhere. Enjoy a convenient, efficient, and comfortable living space
+                        with just a few taps on your smartphone.
+                    </p>
+                </div>
+
+                <div id="imageSectionContainer">
+                    <i class="bi bi-arrow-left-circle-fill leftArrowStyle" onclick="prevSlide()"></i>
+                        <div id="imageContainer">
+                            <div class="slider">
+                              <div class="slides">
+                                <img src="{{ url_for('static', filename='images/HomeWallpaper.jpg') }}" alt="Background" class="imageStyle">
+                                <img src="{{ url_for('static', filename='images/Image2.jpg') }}" alt="Background" class="imageStyle">
+                                <img src="{{ url_for('static', filename='images/Image3.jpg') }}" alt="Background" class="imageStyle">
+                                <img src="{{ url_for('static', filename='images/Image4.jpg') }}" alt="Background" class="imageStyle">
+                              </div>
+                            </div>
+                        </div>
+                    <i class="bi bi-arrow-right-circle-fill rightArrowStyle" onclick="nextSlide()"></i>
+                </div>
+
+            </div>
+        <div id="secondSection">
+            <div id="carouselSectionContainer">
+<!--                            <div class="carouselSlider">-->
+<!--                              <div class="carouselSlides">-->
+<!--                                <img src="{{ url_for('static', filename='images/HomeWallpaper.jpg') }}" alt="Background" class="reviewStyle">-->
+<!--                                <img src="{{ url_for('static', filename='images/Image2.jpg') }}" alt="Background" class="reviewStyle">-->
+<!--                                <img src="{{ url_for('static', filename='images/Image3.jpg') }}" alt="Background" class="reviewStyle">-->
+<!--                                <img src="{{ url_for('static', filename='images/Image4.jpg') }}" alt="Background" class="reviewStyle">-->
+<!--                              </div>-->
+<!--                            </div>-->
+                </div>
+        </div>
+    sadad
+</div>
+
+{% endblock %}

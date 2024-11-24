@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaControl</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="icon" sizes="16x16" href="{{ url_for('static', filename='images/FaviconHouse.png') }}" type="image/png">
+    <link rel="icon" sizes="32x32" href="{{ url_for('static', filename='images/FaviconHouse.png') }}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div id="navbarContainer">
+            <a href="{{ url_for('main_controller.home_func') }}" class="logoContainer">
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" class="logo">
+            </a>
+    <!--        <a href="{{ url_for('main_controller.home_func') }}">Home</a>-->
+    <!--        <a href="{{ url_for('main_controller.live_data_func') }}">Live-data</a>-->
+    <!--        <a href="{{ url_for('main_controller.historical_data_func') }}">Login</a>-->
+            <a href="{{ url_for('main_controller.about_func') }}">About</a>
+            <a href="{{ url_for('main_controller.contact_func') }}">Contact Us</a>
+    <!--        <a href="{{ url_for('main_controller.contact_func') }}">Live-Control</a>-->
+            <div id="middleLogo">
+                <p>CASACONTROL</p>
+            </div>
+            <div class="profileIconContainer">
+                <i class="bi bi-person profileStyle"></i>
+            </div>
+        </div>
+
+    </nav>
+
+    <div id="navbarMargin"></div>
+
+    {% block content %}{% endblock %}
+
+
+</body>
+<footer id="footer">
+    Footer content to be made
+</footer>
+</html>

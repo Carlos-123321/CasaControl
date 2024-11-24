@@ -1,0 +1,181 @@
+#homePageContainer{
+    width: 100vw;
+    min-height: 100vh;
+    border: 1px solid red;
+    position: relative;
+}
+
+#firstSection{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    z-index: 3
+}
+
+.leftArrowStyle{
+    color: beige;
+    font-size: 2.5vw;
+    margin-right: 2%;
+    margin-top: 26%;
+    height: fit-content;
+}
+
+.rightArrowStyle{
+    color: beige;
+    font-size: 2.5vw;
+    margin-left: 2%;
+    margin-top: 26%;
+    height: fit-content;
+}
+
+.leftArrowStyle:hover,
+.rightArrowStyle:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+#imageSectionContainer{
+    z-index: 3;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+
+#imageContainer{
+    margin-top: 10%;
+    width: 80%;
+    height: 55%;
+}
+
+.titleHomePageContainer{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    height: 40px;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    font-size: 1.9vw;
+}
+
+.houseIconStyle{
+    margin-left: auto;
+    left: auto;
+    height: fit-content;
+    font-size: 1.6rem;
+    margin-right: 5%;
+}
+
+.textHomePage{
+    font-size: 2.92vh;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    letter-spacing: 0.05em;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+#textContainerFirstSection{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 45%;
+    margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 4%;
+    border-radius: 10px;
+    height: 83%;
+    border: 1px solid beige;
+    z-index: 3;
+    border: 1px solid blue;
+}
+
+#videoStyle{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid black;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  margin: auto;
+  border: 1px solid red;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.imageStyle{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.imageStyle:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+#secondSection{
+    position: relative;
+    display: flex;
+    height: 50vh;
+    width: 100%;
+    border: 1px solid yellow;
+    background-color: blue;
+    z-index: 1;
+}
+
+//Carousel Style
+
+.carouselSectionContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 4px solid turquoise;
+}
+
+.carouselSlider {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+  margin: auto;
+  border: 1px solid red;
+}
+
+.carouselSlides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.reviewStyle{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
