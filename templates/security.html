@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='security.css') }}">
+
+<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/SecurityWallpaper.jpg') }}');">
+
+        <div id="titleSection">
+            <p id="titleStyle">Security Controls <i class="bi bi-eye-fill" style="color: black;"></i></p>
+        </div>
+
+        <div class="leftAndRightSection">
+
+
+        </div>
+
+        <div class="allLampCommandsSection">
+
+        </div>
+
+        <div id="userInputSection">
+
+            <div id="userInput">
+                <form action="{{ url_for('main_controller.lamp_commands_func') }}" method="POST">
+                    <div>
+                        <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
+                        <input class="inputBoxLamp" type="text" id="command" name="command">
+                    </div>
+
+
+                        <button type="submit" id="buttonStyle" class="font-style">Submit Command</button>
+
+
+                </form>
+
+                <p class="font-style font-size textColorWhite">Status: {{ status_message }}</p>
+            </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -22,18 +22,56 @@
     <!--        <a href="{{ url_for('main_controller.home_func') }}">Home</a>-->
     <!--        <a href="{{ url_for('main_controller.live_data_func') }}">Live-data</a>-->
     <!--        <a href="{{ url_for('main_controller.historical_data_func') }}">Login</a>-->
-            <a href="{{ url_for('main_controller.about_func') }}">About</a>
-            <a href="{{ url_for('main_controller.contact_func') }}">Contact Us</a>
+
+            {% if session.get('user_verified') %}
+            <a href="{{ url_for('main_controller.lamp_commands_func') }}">
+                Lamp Control <i class="bi bi-lamp-fill"></i></a>
+            {% endif %}
+
+            {% if session.get('user_verified') %}
+            <a href="{{ url_for('main_controller.climate_func') }}">
+                Climate Control <i class="bi bi-thermometer-sun"></i></a>
+            {% endif %}
+
+            {% if session.get('user_verified') %}
+            <a href="{{ url_for('main_controller.room_func') }}">
+                Room Control <i class="bi bi-box2-fill"></i></a>
+            {% endif %}
+
+            {% if session.get('user_verified') %}
+            <a href="{{ url_for('main_controller.security_func') }}">
+                Security Control <i class="bi bi-eye-fill"></i></a>
+            {% endif %}
+
+            <a href="{{ url_for('main_controller.contact_func') }}">
+                Contact Us <i class="bi bi-telephone-fill"></i></a>
     <!--        <a href="{{ url_for('main_controller.contact_func') }}">Live-Control</a>-->
+
+            {% if session.get('user_verified') %}
+
+            {% else %}
             <div id="middleLogo">
                 <p>CASACONTROL</p>
             </div>
+            {% endif %}
 
+
+
+            {% if session.get('user_verified') %}
+            <a href="{{ url_for('main_controller.profile_func') }}" class="profileContainerSection ">
+                <div class="profileIconContainer">
+                    Carlos
+                    <i class="bi bi-person profileStyle"></i>
+                </div>
+            </a>
+
+            {% else %}
             <a href="{{ url_for('main_controller.profile_func') }}" class="profileContainerSection">
                 <div class="profileIconContainer">
                     <i class="bi bi-person profileStyle"></i>
                 </div>
             </a>
+            {% endif %}
 
         </div>
 

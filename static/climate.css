@@ -7,10 +7,6 @@
     background-repeat: no-repeat;
 }
 
-.lampWallpaper{
-    border: 1px solid green;
-}
-
 #titleSection{
     display: flex;
     flex-direction: row;
@@ -24,10 +20,6 @@
     margin: 0;
     margin-left: 2vw;
     margin-top: 2vh;
-}
-
-.yellow-icon {
-    color: yellow;
 }
 
 .leftAndRightSection{
@@ -44,52 +36,6 @@
     height: fit-content;
     justify-content: center;
     margin-bottom: 6vh;
-}
-
-.leftLampCommandsSection{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.leftLampCommands{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.rightLampCommandsSection{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.rightLampCommands{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.allLampCommands{
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
 }
 
 .titleOfCommands{

@@ -3,7 +3,6 @@
     flex-direction: row;
     width: 100%;
     height: 100vh;
-    border: 1px solid green;
     justify-content: center;
     align-items: flex-start;
     background-size: cover;
@@ -38,7 +37,7 @@
     margin-top: 20vh;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
-    height: 55vh;
+    height: 57vh;
     width: 40%;
     position: relative;
     z-index: 1;
@@ -47,11 +46,11 @@
 
 #loginSection{
     display: flex;
-    border: 1px solid green;
     height: fit-content;
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-top: 3%;
 }
 
 #loginText{
@@ -69,7 +68,6 @@
     display: flex;
     width: 100%;
     height: 13vh;
-    border: 1px solid red;
     justify-content: center;
     align-items: center;
 }
@@ -78,14 +76,12 @@
     display: flex;
     width: 60%;
     height: 10vh;
-    border: 1px solid green;
     align-items: center;
 }
 
 .iconSectionContainer{
     width: fit-content;
     height: fit-content;
-    border: 1px solid yellow;
     margin-left: 2%;
     margin-right: 2%;
 }
@@ -108,7 +104,6 @@
     display: flex;
     width: 100%;
     height: 13vh;
-    border: 1px solid red;
     justify-content: center;
     align-items: center;
 }
@@ -117,7 +112,6 @@
     display: flex;
     width: 60%;
     height: 10vh;
-    border: 1px solid green;
     align-items: center;
 }
 
@@ -134,7 +128,6 @@
     display: flex;
     width: 100%;
     height: 10vh;
-    border: 1px solid red;
     justify-content: center;
     align-items: center;
 }
@@ -143,12 +136,10 @@
     display: flex;
     width: 80%;
     height: 10vh;
-    border: 1px solid green;
     align-items: center;
 }
 
 #leftSection{
-    border: 1px solid yellow;
     width: 50%;
     display: flex;
     align-items: center;
@@ -158,10 +149,17 @@
 #rightSection{
     display: flex;
     justify-content: flex-end;
-    border: 1px solid yellow;
     width: 50%;
 }
 
 #loginButton{
-
+    margin-top: 2%;
+    width: 50%;
+    height: 13%;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
 }

@@ -2,6 +2,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+<script src="{{ url_for('static', filename='profile.js') }}"></script>
 
 <div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/Image2.jpg') }}');">
 
@@ -26,7 +27,7 @@
                 <div class="iconSectionContainer">
                     <i class="bi bi-lock-fill"></i>
                 </div>
-                <input type="text" id="passwordInputBox" name="password"/>
+                <input type="password" id="passwordInputBox" name="password"/>
             </div>
         </div>
 
@@ -35,14 +36,14 @@
 
                 <div id="leftSection">
                     <input type="checkbox" id="rememberMeCheckbox" name="rememberMe">
-                    <p style="margin: 0; color: white;">
+                    <p style="margin: 0; color: white; font-family: 'Lora', 'Times New Roman', Times, serif;">
                     Remember me
                     </p>
                 </div>
 
                 <div id="rightSection">
-                    <a>
-                        <p style="margin: 0; color: white;">
+                    <a href="">
+                        <p style="margin: 0; color: white; font-family: 'Lora', 'Times New Roman', Times, serif;">
                         Forgot password?
                         </p>
                     </a>
@@ -51,7 +52,9 @@
             </div>
         </div>
 
-        <button id="loginButton">Hello</button>
+        <button id="loginButton">
+            Login
+        </button>
 
     </div>
 </div>

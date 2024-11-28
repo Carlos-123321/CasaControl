@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='lamp_commands.css') }}">
 
 <div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/LampWallpaper.jpeg') }}');">
 
@@ -41,7 +41,7 @@
         <div id="userInputSection">
 
             <div id="userInput">
-                <form action="{{ url_for('main_controller.about_func') }}" method="POST">
+                <form action="{{ url_for('main_controller.lamp_commands_func') }}" method="POST">
                     <div>
                         <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
                         <input class="inputBoxLamp" type="text" id="command" name="command">

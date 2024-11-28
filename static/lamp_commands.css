@@ -1,0 +1,155 @@
+#pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#titleSection{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#titleStyle{
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    font-size: 2.3rem;
+    color: white;
+    margin: 0;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+.yellow-icon {
+    color: yellow;
+}
+
+.leftAndRightSection{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.allLampCommandsSection{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    margin-bottom: 6vh;
+}
+
+.leftLampCommandsSection{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftLampCommands{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.rightLampCommandsSection{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightLampCommands{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.allLampCommands{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.titleOfCommands{
+    font-size: 1.6rem;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.commandStyleText{
+    font-size: 1.4rem;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    color: white;
+}
+
+#userInputSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+#userInput{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.inputBoxLamp {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.inputBoxLamp:focus {
+    border: none;
+    border-bottom: 1px solid yellow;
+}
+
+#buttonStyle {
+    width: fit-content;
+    align-self: center;
+    margin-left: 30%;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    height: 7vh;
+}
+
+.font-style{
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+}
+
+.font-size{
+    font-size: 1.3rem;
+}
+
+.textColorWhite{
+    color: white;
+}
