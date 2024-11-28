@@ -57,9 +57,12 @@ nav a:hover {
     height: 100%;
 }
 
-.profileIconContainer{
-    border: 1px solid red;
+.profileContainerSection{
     margin-left: auto;
+    margin-right: 4%;
+}
+
+.profileIconContainer{
 }
 
 .profileStyle{

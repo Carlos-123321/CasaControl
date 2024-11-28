@@ -1,7 +1,6 @@
 import os
-
-from flask import Blueprint, render_template, redirect, url_for, request, jsonify
-from Models.models import Project, db, Task
+from flask import Blueprint, render_template, request, jsonify
+from mqtt_client import mqtt_client, mqtt_command_topic, status_message
 
 main_bp = Blueprint('main_controller', __name__)
 
@@ -9,16 +8,41 @@ main_bp = Blueprint('main_controller', __name__)
 def home_func():
     return render_template('home.html')
 
-
+@main_bp.route('/lamp-confirmation', methods=['GET', 'POST'])
+def control_led():
+    if request.method == 'POST':
+        command = request.form['command']
+        if command.lower() in ["on", "onal"]:
+            mqtt_client.publish(mqtt_command_topic, command)
+            return f"Sent command: {command}"
+        else:
+            return "Invalid command. Please type 'on' or 'off'."
+    return f'''
+        <form method="POST">
+            Enter command (on/off): <input type="text" name="command">
+            <button type="submit">Send</button>
+        </form>
+        <p>Status: {status_message}</p>  <!-- Access status_message here -->
+    '''
 
 @main_bp.route('/historical')
 def historical_data_func():
     print("historical route")
     return render_template('historical_data.html')
 
-@main_bp.route('/about')
+@main_bp.route('/about', methods=['GET', 'POST'])
 def about_func():
-    return render_template('about.html')
+    global status_message
+    if request.method == 'POST':
+        command = request.form['command'].strip().lower()
+
+        mqtt_client.publish(mqtt_command_topic, command)
+        status_message = f"Command '{command}' sent to Raspberry Pi."
+
+        return render_template('about.html', status_message=status_message)
+
+    return render_template('about.html', status_message=status_message)
+
 
 @main_bp.route('/contact')
 def contact_func():
@@ -48,20 +72,6 @@ def read_historical_data():
 def live_data_func():
     return render_template('live_data.html')
 
-@main_bp.route('/live-data')
-def get_sensor_data():
-    print("Sending sensor data:", sensor_data)
-    return jsonify(sensor_data)
-
-sensor_data = {"temperature": [], "humidity": []}
-
-def on_message(client, userdata, msg):
-    print("Received MQTT message:", msg.payload)
-    data = msg.payload.decode().split(',')
-    temperature, humidity = float(data[0]), float(data[1])
-    sensor_data["temperature"].append(temperature)
-    sensor_data["humidity"].append(humidity)
-
-def saveDataToList(temperature, humidity):
-    sensor_data["temperature"].append(temperature)
-    sensor_data["humidity"].append(humidity)
+@main_bp.route('/profile')
+def profile_func():
+    return render_template('profile.html')

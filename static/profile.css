@@ -1,0 +1,167 @@
+#pageContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid green;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#pageContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+#titleProfilePage{
+    z-index: 1;
+    color: white;
+    margin-top: 10vh;
+    margin-right: 10%;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+}
+
+#loginSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    height: 55vh;
+    width: 40%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#loginSection{
+    display: flex;
+    border: 1px solid green;
+    height: fit-content;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginText{
+    font-size: 1.7rem;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.whiteColor{
+    color: white;
+}
+
+
+#usernameSection{
+    display: flex;
+    width: 100%;
+    height: 13vh;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+}
+
+#usernameInner{
+    display: flex;
+    width: 60%;
+    height: 10vh;
+    border: 1px solid green;
+    align-items: center;
+}
+
+.iconSectionContainer{
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid yellow;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.iconSectionContainer i {
+    color: white;
+    font-size: 2em;
+}
+
+#usernameInputBox {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    color: white;
+}
+
+#passwordSection{
+    display: flex;
+    width: 100%;
+    height: 13vh;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+}
+
+#passwordInner{
+    display: flex;
+    width: 60%;
+    height: 10vh;
+    border: 1px solid green;
+    align-items: center;
+}
+
+#passwordInputBox{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    color: white;
+}
+
+#rememberMeSection{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+}
+
+#rememberInner{
+    display: flex;
+    width: 80%;
+    height: 10vh;
+    border: 1px solid green;
+    align-items: center;
+}
+
+#leftSection{
+    border: 1px solid yellow;
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+}
+
+#rightSection{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid yellow;
+    width: 50%;
+}
+
+#loginButton{
+
+}

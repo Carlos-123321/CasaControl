@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+
+<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/Image2.jpg') }}');">
+
+    <h1 id="titleProfilePage">Good to see you again!</h1>
+    <div id="loginSectionContainer">
+
+        <div id="loginSection">
+            <p id="loginText" class="whiteColor">Login</p>
+        </div>
+
+        <div id="usernameSection">
+            <div id="usernameInner">
+                <div class="iconSectionContainer">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <input type="text" id="usernameInputBox" name="username"/>
+            </div>
+        </div>
+
+        <div id="passwordSection">
+            <div id="passwordInner">
+                <div class="iconSectionContainer">
+                    <i class="bi bi-lock-fill"></i>
+                </div>
+                <input type="text" id="passwordInputBox" name="password"/>
+            </div>
+        </div>
+
+        <div id="rememberMeSection">
+            <div id="rememberInner">
+
+                <div id="leftSection">
+                    <input type="checkbox" id="rememberMeCheckbox" name="rememberMe">
+                    <p style="margin: 0; color: white;">
+                    Remember me
+                    </p>
+                </div>
+
+                <div id="rightSection">
+                    <a>
+                        <p style="margin: 0; color: white;">
+                        Forgot password?
+                        </p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <button id="loginButton">Hello</button>
+
+    </div>
+</div>
+{% endblock %}

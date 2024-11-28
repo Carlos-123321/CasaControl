@@ -1,6 +1,65 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>About Us</h1>
-    <p>This page contains information about the app.</p>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+
+<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/LampWallpaper.jpeg') }}');">
+
+
+        <div id="titleSection">
+            <p id="titleStyle">Control Lamp Lights <i class="bi bi-lamp-fill yellow-icon"></i></p>
+        </div>
+
+        <div class="leftAndRightSection">
+
+            <div class="leftLampCommandsSection">
+                <div class="leftLampCommands">
+                    <p class="titleOfCommands">Left Lamp Commands:</p>
+                    <p class="commandStyleText">onll</p>
+                    <p class="commandStyleText">offll</p>
+                </div>
+            </div>
+
+            <div class="rightLampCommandsSection">
+                <div class="rightLampCommands">
+                    <p class="titleOfCommands">Right Lamp Commands:</p>
+                    <p class="commandStyleText">onrl</p>
+                    <p class="commandStyleText">offrl</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="allLampCommandsSection">
+            <div class="allLampCommands">
+                <p class="titleOfCommands">All Lamp Commands:</p>
+                <p class="commandStyleText">onal</p>
+                <p class="commandStyleText">offal</p>
+            </div>
+        </div>
+
+        <div id="userInputSection">
+
+            <div id="userInput">
+                <form action="{{ url_for('main_controller.about_func') }}" method="POST">
+                    <div>
+                        <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
+                        <input class="inputBoxLamp" type="text" id="command" name="command">
+                    </div>
+
+
+                        <button type="submit" id="buttonStyle" class="font-style">Submit Command</button>
+
+
+                </form>
+
+                <p class="font-style font-size textColorWhite">Status: {{ status_message }}</p>
+            </div>
+    </div>
+
+
+
+
+
+</div>
 {% endblock %}
