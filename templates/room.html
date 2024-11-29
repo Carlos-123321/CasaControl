@@ -3,7 +3,7 @@
 {% block content %}
  <link rel="stylesheet" href="{{ url_for('static', filename='room.css') }}">
 
-<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/RoomWallpaper.jpg') }}');">
+<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/RoomWallpaper.png') }}');">
 
         <div id="titleSection">
             <p id="titleStyle">Control Room Lights <i class="bi bi-lightbulb-fill" style="color: #FFD700;"></i></p>
@@ -11,20 +11,38 @@
 
         <div class="leftAndRightSection">
 
+            <div class="roomOneCommandsSection">
+                <div class="roomOneCommands">
+                    <p class="titleOfCommands">Room One Commands:</p>
+                    <p class="commandStyleText">onroom1</p>
+                    <p class="commandStyleText">offroom1</p>
+                </div>
+            </div>
 
+            <div class="roomTwoCommandsSection">
+                <div class="roomTwoCommands">
+                    <p class="titleOfCommands">Room Two Commands:</p>
+                    <p class="commandStyleText">onroom2</p>
+                    <p class="commandStyleText">offroom2</p>
+                </div>
+            </div>
         </div>
 
-        <div class="allLampCommandsSection">
-
+        <div class="allRoomsCommandsSection">
+            <div class="allRoomsCommands">
+                <p class="titleOfCommands">All Room Commands:</p>
+                <p class="commandStyleText">onar</p>
+                <p class="commandStyleText">offar</p>
+            </div>
         </div>
 
         <div id="userInputSection">
 
             <div id="userInput">
-                <form action="{{ url_for('main_controller.lamp_commands_func') }}" method="POST">
+                <form action="{{ url_for('main_controller.room_func') }}" method="POST">
                     <div>
                         <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
-                        <input class="inputBoxLamp" type="text" id="command" name="command">
+                        <input class="inputBoxRoom" type="text" id="command" name="command">
                     </div>
 
 

@@ -88,23 +88,73 @@ def lamp_commands_func():
         return redirect(url_for('main_controller.login'))
 
     global status_message
+    valid_lamp_commands = ["onll", "offll", "onrl", "offrl", "onal", "offal"]
+
+    if request.method == 'POST':
+        command = request.form['command'].strip().lower()
+
+        if command in valid_lamp_commands:
+            mqtt_client.publish(mqtt_command_topic, command)
+            status_message = f"Command '{command}' sent to Raspberry Pi."
+        else:
+
+            status_message = f"Invalid command."
+        return render_template('lamp_commands.html', status_message=status_message)
+
+    return render_template('lamp_commands.html', status_message=status_message)
+
+
+@main_bp.route('/climate', methods=['GET', 'POST'])
+def climate_func():
+    if not session.get('user_verified'):
+        return redirect(url_for('main_controller.login'))
+
+    global status_message
     if request.method == 'POST':
         command = request.form['command'].strip().lower()
         mqtt_client.publish(mqtt_command_topic, command)
         status_message = f"Command '{command}' sent to Raspberry Pi."
 
-        return render_template('lamp_commands.html', status_message=status_message)
+        return render_template('climate.html', status_message=status_message)
 
-    return render_template('lamp_commands.html', status_message=status_message)
+    return render_template('climate.html', status_message=status_message)
 
-@main_bp.route('/climate')
-def climate_func():
-    return render_template('climate.html')
 
-@main_bp.route('/room')
+@main_bp.route('/room', methods=['GET', 'POST'])
 def room_func():
-    return render_template('room.html')
+    if not session.get('user_verified'):
+        return redirect(url_for('main_controller.login'))
 
-@main_bp.route('/security')
+    global status_message
+    valid_rooms = ["room1", "room2"]
+    valid_commands = ([f"on{room}" for room in valid_rooms] +
+                      [f"off{room}" for room in valid_rooms] + ["onar", "offar"])
+
+    if request.method == 'POST':
+        command = request.form['command'].strip().lower()
+
+        if command in valid_commands:
+            mqtt_client.publish(mqtt_command_topic, command)
+            status_message = f"Command '{command}' sent to Raspberry Pi."
+        else:
+            status_message = f"Invalid command."
+
+        return render_template('room.html', status_message=status_message)
+
+    return render_template('room.html', status_message=status_message)
+
+
+@main_bp.route('/security', methods=['GET', 'POST'])
 def security_func():
-    return render_template('security.html')
+    if not session.get('user_verified'):
+        return redirect(url_for('main_controller.login'))
+
+    global status_message
+    if request.method == 'POST':
+        command = request.form['command'].strip().lower()
+        mqtt_client.publish(mqtt_command_topic, command)
+        status_message = f"Command '{command}' sent to Raspberry Pi."
+
+        return render_template('security.html', status_message=status_message)
+
+    return render_template('security.html', status_message=status_message)

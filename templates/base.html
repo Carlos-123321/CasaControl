@@ -84,6 +84,10 @@
 
 </body>
 <footer id="footer">
-    Footer content to be made
+    <div id="footerInner">
+        <a href="{{ url_for('main_controller.home_func') }}" class="logoContainer">
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" class="logo">
+            </a>
+    </div>
 </footer>
 </html>

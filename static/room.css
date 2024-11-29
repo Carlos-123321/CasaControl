@@ -30,12 +30,58 @@
     margin-bottom: 3vh;
 }
 
-.allLampCommandsSection{
+.roomOneCommandsSection{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.roomOneCommands{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: rgba(255, 150, 160, 0.8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.roomTwoCommandsSection{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.roomTwoCommands{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: rgba(255, 150, 160, 0.8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.allRoomsCommandsSection{
     display: flex;
     width: 100%;
     height: fit-content;
     justify-content: center;
     margin-bottom: 6vh;
+}
+
+.allRoomsCommands{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 150, 160, 0.8);
+    border-radius: 10px;
 }
 
 .titleOfCommands{
@@ -47,7 +93,7 @@
 .commandStyleText{
     font-size: 1.4rem;
     font-family: 'Lora', 'Times New Roman', Times, serif;
-    color: white;
+    color: black;
 }
 
 #userInputSection{
@@ -63,12 +109,12 @@
     width: 50%;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 150, 160, 0.8);
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
 
-.inputBoxLamp {
+.inputBoxRoom {
     background-color: transparent;
     color: white;
     border: none;
@@ -76,7 +122,7 @@
     outline: none;
 }
 
-.inputBoxLamp:focus {
+.inputBoxRoom:focus {
     border: none;
     border-bottom: 1px solid yellow;
 }
@@ -101,5 +147,5 @@
 }
 
 .textColorWhite{
-    color: white;
+    color: black;
 }

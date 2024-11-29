@@ -79,8 +79,18 @@ nav a:first-child:hover {
 }
 
 #footer{
-    border: 1px solid yellow;
     height: 30vh;
     width: 100%;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerInner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
 }

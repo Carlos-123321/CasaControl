@@ -30,12 +30,22 @@
     margin-bottom: 3vh;
 }
 
-.allLampCommandsSection{
+.alertCommandsSection{
     display: flex;
     width: 100%;
     height: fit-content;
     justify-content: center;
     margin-bottom: 6vh;
+}
+
+.alertCommands{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
 }
 
 .titleOfCommands{
@@ -68,7 +78,7 @@
     padding-bottom: 3vh;
 }
 
-.inputBoxLamp {
+.inputBoxAlert {
     background-color: transparent;
     color: white;
     border: none;
@@ -76,7 +86,7 @@
     outline: none;
 }
 
-.inputBoxLamp:focus {
+.inputBoxAlert:focus {
     border: none;
     border-bottom: 1px solid yellow;
 }

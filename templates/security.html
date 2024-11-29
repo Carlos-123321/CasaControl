@@ -14,17 +14,21 @@
 
         </div>
 
-        <div class="allLampCommandsSection">
-
+        <div class="alertCommandsSection">
+            <div class="alertCommands">
+                <p class="titleOfCommands">All Alert Commands:</p>
+                <p class="commandStyleText">onalert</p>
+                <p class="commandStyleText">offalert</p>
+            </div>
         </div>
 
         <div id="userInputSection">
 
             <div id="userInput">
-                <form action="{{ url_for('main_controller.lamp_commands_func') }}" method="POST">
+                <form action="{{ url_for('main_controller.security_func') }}" method="POST">
                     <div>
                         <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
-                        <input class="inputBoxLamp" type="text" id="command" name="command">
+                        <input class="inputBoxAlert" type="text" id="command" name="command">
                     </div>
 
 
