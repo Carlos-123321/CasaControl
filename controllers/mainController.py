@@ -9,23 +9,6 @@ main_bp = Blueprint('main_controller', __name__)
 def home_func():
     return render_template('home.html')
 
-@main_bp.route('/lamp-confirmation', methods=['GET', 'POST'])
-def control_led():
-    if request.method == 'POST':
-        command = request.form['command']
-        if command.lower() in ["on", "onal"]:
-            mqtt_client.publish(mqtt_command_topic, command)
-            return f"Sent command: {command}"
-        else:
-            return "Invalid command. Please type 'on' or 'off'."
-    return f'''
-        <form method="POST">
-            Enter command (on/off): <input type="text" name="command">
-            <button type="submit">Send</button>
-        </form>
-        <p>Status: {status_message}</p>  <!-- Access status_message here -->
-    '''
-
 @main_bp.route('/contact')
 def contact_func():
     return render_template('contact.html')
@@ -47,13 +30,12 @@ def login():
         else:
             return "Invalid credentials, please try again."
 
-    return render_template('login.html')
 
 @main_bp.route('/lamp-commands', methods=['GET', 'POST'])
 def lamp_commands_func():
 
     if not session.get('user_verified'):
-        return redirect(url_for('main_controller.login'))
+        return redirect(url_for('main_controller.profile_func'))
 
     global status_message
     valid_lamp_commands = ["onll", "offll", "onrl", "offrl", "onal", "offal"]
@@ -76,7 +58,7 @@ def lamp_commands_func():
 def climate_func():
     print("Climate route accessed")
     if not session.get('user_verified'):
-        return redirect(url_for('main_controller.login'))
+        return redirect(url_for('main_controller.profile_func'))
 
     global status_message
 
@@ -98,7 +80,8 @@ def climate_func():
 
 @main_bp.route('/climate-data', methods=['GET'])
 def get_climate_data():
-
+    if not session.get('user_verified'):
+        return redirect(url_for('main_controller.profile_func'))
     temperature = current_app.config.get('TEMPERATURE', 'Not available')
     humidity = current_app.config.get('HUMIDITY', 'Not available')
     return jsonify({'temperature': temperature, 'humidity': humidity})
@@ -107,7 +90,7 @@ def get_climate_data():
 @main_bp.route('/room', methods=['GET', 'POST'])
 def room_func():
     if not session.get('user_verified'):
-        return redirect(url_for('main_controller.login'))
+        return redirect(url_for('main_controller.profile_func'))
 
     global status_message
     valid_rooms = ["room1", "room2"]
@@ -131,13 +114,19 @@ def room_func():
 @main_bp.route('/security', methods=['GET', 'POST'])
 def security_func():
     if not session.get('user_verified'):
-        return redirect(url_for('main_controller.login'))
+        return redirect(url_for('main_controller.profile_func'))
 
     global status_message
+    valid_commands = ["onalert", "offalert"]
+
     if request.method == 'POST':
         command = request.form['command'].strip().lower()
-        mqtt_client.publish(mqtt_command_topic, command)
-        status_message = f"Command '{command}' sent to Raspberry Pi."
+
+        if command in valid_commands:
+            mqtt_client.publish(mqtt_command_topic, command)
+            status_message = f"Command '{command}' sent to Raspberry Pi."
+        else:
+            status_message = f"Invalid command."
 
         return render_template('security.html', status_message=status_message)
 

@@ -31,7 +31,7 @@
 }
 
 #climateChart{
-    background-color: rgba(210, 180, 140, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
 }
 
@@ -45,12 +45,12 @@
 
 #dataContainer{
     padding: 10px;
-    background-color: rgba(200, 180, 140, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
 }
 
 #liveData{
-    background-color: rgba(210, 180, 140, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     color: white;
     border-radius: 10px;
     padding-left: 20px;
@@ -84,30 +84,30 @@
     width: 50%;
     align-items: center;
     justify-content: center;
-    background-color: rgba(210, 180, 140, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
 
 .inputBoxClimate {
     background-color: transparent;
-    color: white;
+    color: black;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     outline: none;
 }
 
 .inputBoxClimate:focus {
     border: none;
-    border-bottom: 1px solid #32CD32;
+    border-bottom: 1px solid #FF6F00;
 }
 
 #buttonStyle {
     width: fit-content;
     align-self: center;
     margin-left: 30%;
-    background-color: #8B4513;
-    color: white;
+    background-color: #32CD32;
+    color: black;
     border-radius: 10px;
     border: none;
     height: 7vh;

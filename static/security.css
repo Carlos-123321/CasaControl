@@ -82,13 +82,13 @@
     background-color: transparent;
     color: white;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid grey;
     outline: none;
 }
 
 .inputBoxAlert:focus {
     border: none;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid white;
 }
 
 #buttonStyle {

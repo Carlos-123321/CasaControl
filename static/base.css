@@ -86,6 +86,7 @@ nav a:first-child:hover {
     justify-content: center;
     align-items: center;
     border-top: 1px solid whitesmoke;
+    background-color: white;
 }
 
 #footerInner{
