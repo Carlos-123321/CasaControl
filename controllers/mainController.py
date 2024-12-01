@@ -1,7 +1,7 @@
-from flask import session, url_for, redirect, render_template, request, jsonify
+from flask import session, url_for, redirect, render_template, request, jsonify, current_app
 from flask import Blueprint
 import os
-from mqtt_client import mqtt_client, mqtt_command_topic, status_message
+from mqtt_client import mqtt_client, mqtt_command_topic, status_message, temperature, humidity
 
 main_bp = Blueprint('main_controller', __name__)
 
@@ -26,44 +26,13 @@ def control_led():
         <p>Status: {status_message}</p>  <!-- Access status_message here -->
     '''
 
-@main_bp.route('/historical')
-def historical_data_func():
-    print("historical route")
-    return render_template('historical_data.html')
-
-
 @main_bp.route('/contact')
 def contact_func():
     return render_template('contact.html')
 
-@main_bp.route('/historical-data')
-def historical_data():
-    print("route first")
-    data = read_historical_data()
-    return jsonify(data)
-
-def read_historical_data():
-    historical_data = []
-    file_path = 'Data/historical_data.txt'
-
-    print("Hello world")
-
-    if os.path.exists(file_path):
-        with open(file_path, 'r') as file:
-            for line in file:
-                timestamp, value = line.strip().split(',')
-                print("exec" + timestamp, value)
-                historical_data.append({'timestamp': timestamp, 'value': float(value)})
-    return historical_data
-
-@main_bp.route('/liveData')
-def live_data_func():
-    return render_template('live_data.html')
-
 @main_bp.route('/profile')
 def profile_func():
     return render_template('profile.html')
-
 
 @main_bp.route('/login', methods=['POST', 'GET'])
 def login():
@@ -79,7 +48,6 @@ def login():
             return "Invalid credentials, please try again."
 
     return render_template('login.html')
-
 
 @main_bp.route('/lamp-commands', methods=['GET', 'POST'])
 def lamp_commands_func():
@@ -106,18 +74,34 @@ def lamp_commands_func():
 
 @main_bp.route('/climate', methods=['GET', 'POST'])
 def climate_func():
+    print("Climate route accessed")
     if not session.get('user_verified'):
         return redirect(url_for('main_controller.login'))
 
     global status_message
+
     if request.method == 'POST':
         command = request.form['command'].strip().lower()
-        mqtt_client.publish(mqtt_command_topic, command)
-        status_message = f"Command '{command}' sent to Raspberry Pi."
+        valid_commands = ["onclimate", "offclimate"]
 
-        return render_template('climate.html', status_message=status_message)
+        if command in valid_commands:
+            mqtt_client.publish(mqtt_command_topic, command)
+            status_message = f"Command '{command}' sent to Raspberry Pi."
+        else:
+            status_message = f"Invalid command."
 
-    return render_template('climate.html', status_message=status_message)
+    return render_template('climate.html',
+                           status_message=status_message,
+                           temperature=temperature,
+                           humidity=humidity)
+
+
+@main_bp.route('/climate-data', methods=['GET'])
+def get_climate_data():
+
+    temperature = current_app.config.get('TEMPERATURE', 'Not available')
+    humidity = current_app.config.get('HUMIDITY', 'Not available')
+    return jsonify({'temperature': temperature, 'humidity': humidity})
 
 
 @main_bp.route('/room', methods=['GET', 'POST'])

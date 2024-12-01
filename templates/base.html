@@ -19,9 +19,6 @@
             <a href="{{ url_for('main_controller.home_func') }}" class="logoContainer">
             <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="Logo" class="logo">
             </a>
-    <!--        <a href="{{ url_for('main_controller.home_func') }}">Home</a>-->
-    <!--        <a href="{{ url_for('main_controller.live_data_func') }}">Live-data</a>-->
-    <!--        <a href="{{ url_for('main_controller.historical_data_func') }}">Login</a>-->
 
             {% if session.get('user_verified') %}
             <a href="{{ url_for('main_controller.lamp_commands_func') }}">
@@ -45,7 +42,6 @@
 
             <a href="{{ url_for('main_controller.contact_func') }}">
                 Contact Us <i class="bi bi-telephone-fill"></i></a>
-    <!--        <a href="{{ url_for('main_controller.contact_func') }}">Live-Control</a>-->
 
             {% if session.get('user_verified') %}
 
@@ -54,7 +50,6 @@
                 <p>CASACONTROL</p>
             </div>
             {% endif %}
-
 
 
             {% if session.get('user_verified') %}

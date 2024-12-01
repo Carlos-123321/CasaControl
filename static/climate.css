@@ -22,20 +22,41 @@
     margin-top: 2vh;
 }
 
-.leftAndRightSection{
+.climateCommandsSection{
     display: flex;
     width: 100%;
-    height: fit-content;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-}
-
-.allLampCommandsSection{
-    display: flex;
-    width: 100%;
-    height: fit-content;
+    height: 40vh;
     justify-content: center;
     margin-bottom: 6vh;
+}
+
+#climateChart{
+    background-color: rgba(210, 180, 140, 0.9);
+    border-radius: 10px;
+}
+
+#sensorValuesSection{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#dataContainer{
+    padding: 10px;
+    background-color: rgba(200, 180, 140, 0.9);
+    border-radius: 10px;
+}
+
+#liveData{
+    background-color: rgba(210, 180, 140, 0.9);
+    color: white;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .titleOfCommands{
@@ -45,7 +66,7 @@
 }
 
 .commandStyleText{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-family: 'Lora', 'Times New Roman', Times, serif;
     color: white;
 }
@@ -63,12 +84,12 @@
     width: 50%;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
+    background-color: rgba(210, 180, 140, 0.9);
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
 
-.inputBoxLamp {
+.inputBoxClimate {
     background-color: transparent;
     color: white;
     border: none;
@@ -76,16 +97,16 @@
     outline: none;
 }
 
-.inputBoxLamp:focus {
+.inputBoxClimate:focus {
     border: none;
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #32CD32;
 }
 
 #buttonStyle {
     width: fit-content;
     align-self: center;
     margin-left: 30%;
-    background-color: black;
+    background-color: #8B4513;
     color: white;
     border-radius: 10px;
     border: none;

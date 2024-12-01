@@ -85,6 +85,7 @@ nav a:first-child:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid whitesmoke;
 }
 
 #footerInner{

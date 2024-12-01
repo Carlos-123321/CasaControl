@@ -1,41 +1,119 @@
 {% extends "base.html" %}
 
 {% block content %}
- <link rel="stylesheet" href="{{ url_for('static', filename='climate.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='climate.css') }}">
 
-<div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/ClimateWallpaper.jpg') }}');">
-
+    <div id="pageContainer" style="background-image: url('{{ url_for('static', filename='images/ClimateWallpaper.jpg') }}');">
         <div id="titleSection">
             <p id="titleStyle">Monitor Climate <i class="bi bi-thermometer-sun" style="color: #32CD32;"></i></p>
         </div>
 
-        <div class="leftAndRightSection">
-
-
-        </div>
-
-        <div class="allLampCommandsSection">
-
+        <div class="climateCommandsSection">
+            <canvas id="climateChart"></canvas>
+            <div id="sensorValuesSection">
+                    <h1 class="titleOfCommands" id="liveData">Live-Data</h1>
+                <div id="dataContainer">
+                    <div class="commandStyleText" id="temperature">Temperature: -- °C</div>
+                    <div class="commandStyleText" id="humidity">Humidity: -- %</div>
+                    <div class="commandStyleText" id="current-time">Current Time: --</div>
+                </div>
+            </div>
         </div>
 
         <div id="userInputSection">
-
             <div id="userInput">
                 <form action="{{ url_for('main_controller.climate_func') }}" method="POST">
                     <div>
                         <label for="command" class="font-style font-size textColorWhite">Enter a command:</label>
-                        <input class="inputBoxLamp" type="text" id="command" name="command">
+                        <input class="inputBoxClimate" type="text" id="command" name="command">
                     </div>
-
-
-                        <button type="submit" id="buttonStyle" class="font-style">Submit Command</button>
-
-
+                    <button type="submit" id="buttonStyle" class="font-style">Submit Command</button>
                 </form>
 
                 <p class="font-style font-size textColorWhite">Status: {{ status_message }}</p>
             </div>
-    </div>
+        </div>
 
-</div>
+        <script>
+            var initialTemperatureData = [];
+            var initialHumidityData = [];
+            var initialTimeLabels = [];
+
+            var ctx = document.getElementById('climateChart').getContext('2d');
+            var climateChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: initialTimeLabels,
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: initialTemperatureData,
+                        borderColor: '#FF6F00',
+                        tension: 0.1,
+                        fill: false
+                    }, {
+                        label: 'Humidity (%)',
+                        data: initialHumidityData,
+                        borderColor: '#1E90FF',
+                        tension: 0.1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            function fetchClimateData() {
+                fetch("/climate-data")
+                    .then(response => response.json())
+                    .then(data => {
+                        const temperatureElement = document.getElementById("temperature");
+                        const humidityElement = document.getElementById("humidity");
+
+                        temperatureElement.textContent = data.temperature != null ? `Temperature: ${data.temperature} °C` : 'Temperature: -- °C';
+                        humidityElement.textContent = data.humidity != null ? `Humidity: ${data.humidity} %` : 'Humidity: -- %';
+
+                        const currentTime = new Date();
+                        const hours = currentTime.getHours().toString().padStart(2, '0');
+                        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                        const timeLabel = `${hours}:${minutes}`;
+
+                        if (climateChart.data.labels.length >= 12) {
+                            climateChart.data.labels.shift();
+                            climateChart.data.datasets[0].data.shift();
+                            climateChart.data.datasets[1].data.shift();
+                        }
+
+                        climateChart.data.datasets[0].data.push(data.temperature);
+                        climateChart.data.datasets[1].data.push(data.humidity);
+                        climateChart.data.labels.push(timeLabel);
+                        climateChart.update();
+                    })
+                    .catch(error => console.error("Error fetching climate data:", error));
+            }
+
+            setInterval(fetchClimateData, 2000);
+            window.onload = fetchClimateData;
+
+            function updateTime() {
+                const currentTimeElement = document.getElementById("current-time");
+
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                currentTimeElement.textContent = `Current Time: ${hours}:${minutes}:${seconds}`;
+            }
+
+            setInterval(updateTime, 1000);
+            window.onload = updateTime;
+        </script>
+    </div>
 {% endblock %}
