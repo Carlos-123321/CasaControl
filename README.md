@@ -8,3 +8,9 @@
 ![C7](https://github.com/user-attachments/assets/bb3c05c7-4180-4294-9697-5159534b213f)
 
 # HomeModel
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel1.png?raw=true)
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel2.jpg?raw=true)
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel3.jpg?raw=true)
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel4.jpg?raw=true)
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel5.jpg?raw=true)
+![image](https://github.com/Carlos-123321/CasaControl-App/blob/main/HomeModelImages/HomeModel6.jpg?raw=true)
